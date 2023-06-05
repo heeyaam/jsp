@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.sang.notice.service.NoticeMapper">
+	<select id="noticeSelectList"
+		resultType="co.sang.notice.service.NoticeVO">
+		SELECT * FROM NOTICE
+	</select>
+	<select id="noticeSelect"
+		parameterType="co.sang.notice.service.NoticeVO"
+		resultType="co.sang.notice.service.NoticeVO">
+		SELECT * FROM NOTICE
+		WHERE NOTICE_ID = #{noticeId}
+	</select>
+	<insert id="noticeInsert">
+		INSERT INTO NOTICE
+		VALUES(#{noticeId},#{noticeWriter},#{noticeTitle},#{noticeSubhect},#{noticeWdate},0)
+
+	</insert>
+	<update id="noticeUpdate">
+
+	</update>
+	<delete id="noticeDelete">
+		DELETE FROM NOTICE
+		WHERE NOTICE_ID = #{noticeId}
+	</delete>
+</mapper>
