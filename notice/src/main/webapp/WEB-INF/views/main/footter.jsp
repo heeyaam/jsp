@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>
-	<h1>${message }</h1>
-	<button type="button" onclick="location.href='memberList.do'">맴버 목록</button>
-</div>
+	<div>
+		<hr>
+		<p align="center">CopyWriter@sang aaa.com @2023</p>
+	</div>
+
 </body>
 </html>

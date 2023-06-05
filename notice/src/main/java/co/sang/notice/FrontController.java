@@ -15,9 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import co.sang.notice.command.NotideList;
 import co.sang.notice.common.Command;
 import co.sang.notice.main.command.MainCommand;
+import co.sang.notice.member.command.AjaxCheckId;
 import co.sang.notice.member.command.MemberInsert;
 import co.sang.notice.member.command.MemberJoin;
 import co.sang.notice.member.command.MemberList;
+import co.sang.notice.member.command.MemberLogin;
+import co.sang.notice.member.command.memberLoginForm;
 
 /**
  * Servlet implementation class FrontController
@@ -45,7 +48,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberList.do", new MemberList()); //맴버 목록 보기
 		map.put("/memberJoin.do", new MemberJoin()); //회원강비 화면 호출
 		map.put("/memberInsert.do", new MemberInsert()); //
-		map.put("/a", null);
+		map.put("/ajecChexkId.do", new AjaxCheckId());
+		map.put("/memberLoginForm.do", new memberLoginForm());
+		map.put("/memberLogin.do", new MemberLogin());
 	}
 
 	/**
@@ -65,6 +70,11 @@ public class FrontController extends HttpServlet {
 		String viewPage = command.exec(request, response);
 
 		if (!viewPage.endsWith(".do")) {
+			if(viewPage.startsWith("Ajax:")) {
+				response.setContentType("text/html; charset=UTF-8");
+				response.getWriter().append(viewPage.substring(5));
+				return;
+			}
 			viewPage = "WEB-INF/views/" + viewPage + ".jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);

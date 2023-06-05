@@ -11,6 +11,11 @@
 	<h1>Welcome to My Home</h1>
 	<a href="noticeList.do">게시글 목록</a><br>
 	<a href="memberList.do">맴버목록 보기</a>
+	<a href="memberLoginForm.do">로그인</a>
+</div>
+
+<div>
+	<jsp:include page="footter.jsp"></jsp:include>
 </div>
 </body>
 </html>

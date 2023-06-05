@@ -14,4 +14,8 @@
 	</insert>
 	<update id="memberUpdate"></update>
 	<delete id="memberDelete"></delete>
+	<select id="memberLogin" resultType="co.sang.notice.service.NoticeVO">
+		select * from member
+		where member_id = #{memberId} and  member_password = #{memberPassword}
+	</select>
 </mapper>

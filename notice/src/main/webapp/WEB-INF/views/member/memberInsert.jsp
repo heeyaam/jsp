@@ -62,6 +62,7 @@
 				</div>
 			</form>
 		</div>
+		<jsp:include page="../main/footter.jsp"></jsp:include>
 	</div>
 <script type="text/javascript">
 	function formCheck(){
@@ -81,12 +82,21 @@
 	
 	function idCheck(){
 		let id= document.getElementById("memberId").value;
-		let checkId = document.getElementById("checkId").value;
 		let url = "ajaxCheckId.do?id="+id;
 		fetch(url)
-			.
+			.then(response => resoibse.text())
+			.then(text => htmlProcess(text));
 	}
 	
+	function htmlProcess(data){
+		if(data == 'Yes'){
+			alert(document.getElementById("memberId").vlaue + "\n 사용가능한 아이디 입니다");
+			document.getElementById("checkId").value = 'Yes';
+		}else{
+			alert(document.getElementById("memberId").vlaue + "\n 이미 사용하는 아이디 입니다");
+			document.getElementById("memberId").focus();
+		}
+	}
 	
 </script>
 </body>
