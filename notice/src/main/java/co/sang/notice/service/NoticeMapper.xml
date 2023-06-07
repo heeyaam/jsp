@@ -3,7 +3,11 @@
 <mapper namespace="co.sang.notice.service.NoticeMapper">
 	<select id="noticeSelectList"
 		resultType="co.sang.notice.service.NoticeVO">
-		SELECT * FROM NOTICE
+		SELECT * FROM NOTICE order by notice_id
+
+		<if test="memberPassword !=null">
+			and member_password = #{memberPassword}
+		</if>
 	</select>
 	<select id="noticeSelect"
 		parameterType="co.sang.notice.service.NoticeVO"
@@ -11,13 +15,26 @@
 		SELECT * FROM NOTICE
 		WHERE NOTICE_ID = #{noticeId}
 	</select>
-	<insert id="noticeInsert">
+	<insert id="noticeInsert"
+		parameterType="co.sang.notice.service.NoticeVO">
+		<selectKey keyProperty="noticeId" resultType="int"
+			order="BEFORE">
+			select max(notice_id) + 1 as noticeId from notice
+		</selectKey>
 		INSERT INTO NOTICE
 		VALUES(#{noticeId},#{noticeWriter},#{noticeTitle},#{noticeSubhect},#{noticeWdate},0)
 
 	</insert>
-	<update id="noticeUpdate">
-
+	<update id="noticeUpdate"
+		parameterType="co.sang.notice.service.NoticeVO">
+		update notice
+		<set>
+			<if test="noticeWriter != null">NOTICE_WRITER = #{noticeWriter},</if>
+			<if test="noticeTitle != null">NOTICE_TITLE = #{noticeTitle},</if>
+			<if test="noticeWdate != null">NOTICE_WDATE = #{noticeWdate},</if>
+			<if test="noticeSubhect != null">NOTICE_SUBJECT = #{noticeSubhect}</if>
+		</set>
+		where notice_id= #{noticeId}
 	</update>
 	<delete id="noticeDelete">
 		DELETE FROM NOTICE

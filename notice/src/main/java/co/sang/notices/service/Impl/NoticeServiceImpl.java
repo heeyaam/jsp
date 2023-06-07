@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 //import java.sql.ResultSet;
 //import java.sql.SQLException;
 //import java.util.ArrayList;
-	import java.util.List;
+import java.util.List;
 
 import co.sang.notice.common.DataSource;
 import co.sang.notice.service.NoticeMapper;
@@ -16,9 +16,9 @@ import co.sang.notice.service.NoticeVO;
 
 public class NoticeServiceImpl implements NoticeService {
 
-	SqlSession sqlSession = DataSource.getInstance().openSession(true);//db연결
-	NoticeMapper map = sqlSession.getMapper(NoticeMapper.class);  //xml 파일연결
-	
+	SqlSession sqlSession = DataSource.getInstance().openSession(true);// db연결
+	NoticeMapper map = sqlSession.getMapper(NoticeMapper.class); // xml 파일연결
+
 	@Override
 	public List<NoticeVO> noticeSelectList() {
 //		String sql = "SELECT * FROM NOTICE";
@@ -60,25 +60,25 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public NoticeVO noticeSelect(NoticeVO vo) {
-		
+
 		return map.noticeSelect(vo);
 	}
 
 	@Override
 	public int noticeInsert(NoticeVO vo) {
-		
+
 		return map.noticeInsert(vo);
 	}
 
 	@Override
 	public int noticeUpdate(NoticeVO vo) {
-		
+
 		return map.noticeUpdate(vo);
 	}
 
 	@Override
 	public int noticeDelete(NoticeVO vo) {
-		
+
 		return map.noticeDelete(vo);
 	}
 

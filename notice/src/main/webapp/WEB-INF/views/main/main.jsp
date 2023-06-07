@@ -13,7 +13,9 @@
 	<a href="memberList.do">맴버목록 보기</a>
 	<a href="memberLoginForm.do">로그인</a>
 </div>
-
+<div>
+<img alt="배경화면" src="img/cat.jpg" width="100%">
+</div>
 <div>
 	<jsp:include page="footter.jsp"></jsp:include>
 </div>

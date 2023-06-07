@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form id= "frm" action="MemberLogin.do" method="post">
+	<form id= "frm" action="memberLogin.do" method="post">
 		<div>
 			<h1>로 그 인</h1>
 		</div>

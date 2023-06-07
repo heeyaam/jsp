@@ -16,7 +16,7 @@
 			<h1>회 원 가 입</h1>
 
 		<div>
-			<form id="frm" action="memberInsert.do" onsubmit="formCheck()" method="post">
+			<form id="frm" action="memberInsert.do" onsubmit="return formCheck()" method="post">
 				<table>
 					<tr>
 						<th>*아이디</th>
@@ -73,7 +73,7 @@
 			frm.Passwordcheck.value="";
 			frm.memberPassword.focus();
 			return false;
-		}if else(frm.checkId.value !="Yes"){
+		}else if(frm.checkId.value !="Yes"){
 				alert("아이디 중복체크를 수행하세요");
 				return false;
 			}
@@ -84,7 +84,7 @@
 		let id= document.getElementById("memberId").value;
 		let url = "ajaxCheckId.do?id="+id;
 		fetch(url)
-			.then(response => resoibse.text())
+			.then(response => response.text())
 			.then(text => htmlProcess(text));
 	}
 	

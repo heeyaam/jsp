@@ -19,9 +19,10 @@ public class AjaxCheckId implements Command {
 		String str="Ajax:";
 		if(vo!=null) {
 			str+="No";
-		}else {}
+		}else {
 		str+="Yes";
-		return null;
+		}
+		return str;
 	}
 
 }
