@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div>
+	<jsp:include page="menu.jsp"/>
+</div>
 <div align="center"> 
 	<h1>Welcome to My Home</h1>
 	<a href="noticeList.do">게시글 목록</a><br>

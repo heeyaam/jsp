@@ -28,6 +28,9 @@ import co.sang.notice.member.command.MemberList;
 import co.sang.notice.member.command.MemberLogin;
 import co.sang.notice.member.command.MemberLogout;
 import co.sang.notice.member.command.memberLoginForm;
+import co.sang.notice.product.command.ProductInsert;
+import co.sang.notice.product.command.ProductList;
+import co.sang.notice.product.command.productInsertForm;
 //자바코드에서 Html을 생성하는 것 controller를 구성할떄 보통 사용
 //mvc패턴을 사용할때는 init, service 를 주로 사용
 /**
@@ -67,6 +70,12 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new memberLoginForm());
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogout.do", new MemberLogout());
+		
+		//제품관리
+		map.put("/productList.do", new ProductList()); //제품 목록 보기
+		map.put("/productInsertForm.do", new productInsertForm());
+		map.put("/productInsert.do", new ProductInsert());
+		
 	}
 
 	/**
